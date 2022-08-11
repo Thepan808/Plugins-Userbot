@@ -16,12 +16,12 @@ async def songs(event):
     ForGo10God, HELL_USER, hell_mention = await client_id(event)
     lists = event.text.split(" ", 1)
     if len(lists) != 2:
-        return await parse_error(event, "Nothing given to search.")
+        return await parse_error(event, "Nada dado para pesquisar.")
     reply = await event.get_reply_message()
     query = lists[1].strip()
     if not query:
-        return await parse_error(event, "Nothing given to search.")
-    hell = await eor(event, f"<b><i>Searching “ {query} ”</i></b>", parse_mode="HTML")
+        return await parse_error(event, "Nada dado para pesquisar.")
+    hell = await eor(event, f"<b><i>Procurando “ {query} ”</i></b>", parse_mode="HTML")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = Hell_YTS(query, max_results=1).to_dict()
@@ -33,18 +33,18 @@ async def songs(event):
         views = results[0]["views"]
         duration = results[0]["duration"]
     except Exception as e:
-        return await parse_error(hell, f"__No song found. Maybe give different name or check spelling.__ \n`{str(e)}`", False)
+        return await parse_error(hell, f"__Nenhuma música encontrada. Talvez dê um nome diferente ou verifique a ortografia.__ \n`{str(e)}`", False)
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        await hell.edit(f"**••• Uploading Song •••** \n\n__» {info_dict['title']}__\n__»» {info_dict['uploader']}__")
+        await hell.edit(f"**••• Carregando vossa música 😷🥤 •••** \n\n__» {info_dict['title']}__\n__»» {info_dict['uploader']}__")
         await event.client.send_file(
             event.chat_id,
             audio_file,
             supports_streaming=True,
-            caption=f"**✘ Song -** `{info_dict['title']}` \n**✘ Views -** `{views}` \n**✘ Duration -** `{duration}` \n\n**« ✘ »** {hell_mention}",
+            caption=f"**✘ Música -** `{info_dict['title']}` \n**✘ Views -** `{views}` \n**✘ Duração -** `{duration}` \n\n**« ✘ »** {hell_mention}",
             thumb=thumb_name,
             reply_to=reply,
             attributes=[
