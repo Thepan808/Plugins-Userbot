@@ -27,7 +27,7 @@ async def songs(event):
         results = Hell_YTS(query, max_results=1).to_dict()
         link = f"https://youtube.com{results[0]['url_suffix']}"
         thumbnail = results[0]["thumbnails"][0]
-        thumb_name = f'thumb{ForGo10God}.jpg'
+        thumb_name = f'ㅤ ⊹𓂃彡 • ටිย፝֟ɳรᥱ┼ • 彡 🥷🏻:🇦🇸ㅤ𓂃⊹'
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, 'wb').write(thumb.content)
         views = results[0]["views"]
