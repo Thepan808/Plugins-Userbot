@@ -68,7 +68,7 @@ class Config(object):
     TAG_LOGGER = os.environ.get("TAG_LOGGER", None)
     if TAG_LOGGER:
         TAG_LOGGER = int(TAG_LOGGER)
-    TELEGRAPH_NAME = os.environ.get("TELEGRAPH_NAME", "[ †he Hêllẞø† ]")
+    TELEGRAPH_NAME = os.environ.get("TELEGRAPH_NAME", "ㅤ ⊹ 𓂃彡•ටිย፝֟ɳรᥱ┼•彡𓂃🇦🇸 ⊹")
     TEMP_DIR = os.environ.get("TEMP_DIR", None)
     TMP_DOWNLOAD_DIRECTORY = os.environ.get("TMP_DOWNLOAD_DIRECTORY", "./DOWNLOADS/")
     THUMB_IMG = os.environ.get("THUMB_IMG", "./HellConfig/resources/pics/hellbot_logo.jpg")
